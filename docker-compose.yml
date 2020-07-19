@@ -1,0 +1,32 @@
+version: "3.1"
+services:
+    urlshortener_client:
+        restart: always
+        build: ./client
+        volumes:
+            - ./client/:/app      
+        image: urlshortener_client
+        container_name: urlshortener_client
+        network_mode: host
+    urlshortener_server:
+        restart: always
+        build: ./server
+        volumes:
+            - ./server/:/app      
+        image: urlshortener_server
+        container_name: urlshortener_server
+        network_mode: host
+    urlshortener_database:
+        image: mongo:4
+        container_name: urlshortener_database
+        restart: always
+        volumes:
+            - urlshortener_database:/data/urlshortener_data
+        environment:
+            - MONGO_INITDB_DATABASE=urlshortener
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=pass
+        ports:
+            - '27017:27017'
+volumes:
+    urlshortener_database:

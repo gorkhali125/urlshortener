@@ -1,0 +1,40 @@
+.Container{
+    text-align: center;
+    position: fixed;
+    width:100%;
+    top:20%;
+}
+
+.inside-div{
+    display: inline-block;
+}
+
+.error{
+    border:2px solid red;
+}
+
+.NotFound{
+    text-align: center;
+    position: fixed;
+    width:100%;
+    top:40%;
+}
+
+.app-title{
+    margin-bottom:20px;
+}
+
+.msg{
+    border-radius: 5px;
+    padding: 12px;
+    color: white;
+    font-size: 18px;
+}
+
+.status-msg{
+    background:green;
+}
+
+.error-msg{
+    background:red;
+}
